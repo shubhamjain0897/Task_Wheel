@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Option = (props) =>(
+const Option =(props) =>(
       <div>
         {props.optkey}
         <button onClick = {(e) =>{
