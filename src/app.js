@@ -4,6 +4,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import IndescisionApp from './components/IndescisionApp';
+import 'normalize.css/normalize.css'
+import './styles/styles.scss';
 
 
 ReactDOM.render(< IndescisionApp />, document.getElementById('app'));
