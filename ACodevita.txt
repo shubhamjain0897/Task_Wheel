@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef pair<int,int> pii;
+typedef pair<ll,ll> pll;
+#define re(i, n) for(int i = 0; i < n; i++)
+#define rep(i,a,b) for(int i = (a); i <= (b); i++)
+#define ren(i,a,b) for(int i = (a); i >= (b); i--)
+#define si(x) scanf("%d",&x)
+#define sl(x) scanf("%lld",&x)
+#define ss(s) scanf("%s",s)
+#define pi(x) printf("%d\n",x)
+#define pl(x) printf("%lld\n",x)
+#define ps(s) printf("%s\n",s)
+
+  int main()
+{
+
+	int n,m,k;
+	scanf("%d,%d,%d",&n,&m,&k);
+	vector<pii> v;
+	re(i,k){
+		int x,y;
+		scanf("%d,%d",&x,&y);
+		v.push_back(make_pair(n-x-1,y));
+	}
+	int cont = 0 , min = INT_MAX;
+	std::vector<int> dis(500);
+	int u = v.size();
+	re(i , n)
+	{
+		re(j , m)
+		{
+			fill(dis.begin(),dis.end(),0);
+			int distk = 0;
+			int flag = 0;
+			re(k , u)
+			{
+				distk = abs(i-v[k].first) + abs(j - v[k].second);
+				if(distk == 0){
+					flag = 1;
+					break;
+				}
+				if(min >= distk){
+					min = distk;
+				}
+				dis[distk]++;
+			}
+			if(!flag)
+				if(dis[min]>1){
+					cont++;
+				}
+			min = INT_MAX;
+		}
+	}
+	cout << cont;
+	return 0;
+}
